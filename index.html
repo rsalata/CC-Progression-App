@@ -150,6 +150,86 @@
       font-weight: 400;
     }
 
+    /* ── IN-CARD LEVEL STEPPER ── */
+    .card-level-stepper {
+      margin-bottom: 14px;
+      background: var(--surface2);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .cls-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      padding: 7px 12px 0;
+    }
+
+    .cls-controls {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .cls-btn {
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-size: 20px;
+      font-weight: 700;
+      width: 44px;
+      min-height: 64px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.1s, opacity 0.15s;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .cls-btn:active { background: var(--border2); }
+    .cls-btn:disabled { color: var(--text-mute); cursor: default; }
+
+    .cls-display {
+      flex: 1;
+      text-align: center;
+      padding: 8px 4px;
+    }
+
+    .cls-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .cls-of {
+      font-size: 13px;
+      color: var(--text-mute);
+      font-weight: 400;
+    }
+
+    .cls-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .cls-desc {
+      font-size: 11px;
+      color: var(--text-dim);
+      font-style: italic;
+      line-height: 1.3;
+      padding: 0 4px;
+    }
+
     /* ── WORKOUT CARDS ── */
     .workout-list {
       padding: 12px 16px;
@@ -189,6 +269,15 @@
       font-size: 17px;
       font-weight: 600;
       letter-spacing: 0.02em;
+    }
+
+    .card-desc {
+      font-size: 11px;
+      color: var(--text-dim);
+      font-weight: 400;
+      margin-top: 1px;
+      margin-bottom: 2px;
+      font-style: italic;
     }
 
     .card-level {
@@ -980,6 +1069,272 @@
     .streak-dot.done { background: var(--green); }
     .streak-dot.pain { background: var(--red); }
 
+    /* ── WARMUP SCREEN ── */
+    .warmup-today-btn {
+      background: var(--gold-dim);
+      border: 1px solid var(--gold);
+      border-radius: var(--radius);
+      color: var(--gold);
+      font-family: 'Barlow Condensed', system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 7px 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .warmup-status-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 12px 16px 4px;
+    }
+
+    .warmup-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid;
+    }
+
+    .warmup-tag.warn  { background: var(--red-dim);    color: var(--red);    border-color: var(--red); }
+    .warmup-tag.caution { background: var(--yellow-dim); color: var(--yellow); border-color: var(--yellow); }
+    .warmup-tag.added { background: var(--green-dim);  color: var(--green);  border-color: var(--green); }
+    .warmup-tag.info  { background: var(--surface2);   color: var(--text-dim); border-color: var(--border2); }
+
+    .warmup-skip-warning {
+      margin: 0 16px 4px;
+      background: var(--red-dim);
+      border: 1px solid var(--red);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      font-size: 12px;
+      color: var(--red);
+      font-weight: 600;
+      display: none;
+    }
+
+    .warmup-skip-warning.visible { display: block; }
+
+    .warmup-list {
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .wu-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .wu-item.done {
+      border-color: var(--green);
+      opacity: 0.7;
+    }
+
+    .wu-item.active {
+      border-color: var(--gold);
+    }
+
+    .wu-item.added-item {
+      border-left: 3px solid var(--green);
+    }
+
+    .wu-item.modified-item {
+      border-left: 3px solid var(--yellow);
+    }
+
+    .wu-row {
+      display: flex;
+      align-items: center;
+      padding: 12px 14px;
+      gap: 12px;
+    }
+
+    .wu-check {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid var(--border2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.2s;
+      font-size: 13px;
+      color: transparent;
+    }
+
+    .wu-item.done .wu-check {
+      border-color: var(--green);
+      background: var(--green);
+      color: #000;
+    }
+
+    .wu-item.active .wu-check {
+      border-color: var(--gold);
+      animation: pulse-ring 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse-ring {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(200,160,90,0.4); }
+      50%       { box-shadow: 0 0 0 5px rgba(200,160,90,0); }
+    }
+
+    .wu-info { flex: 1; min-width: 0; }
+
+    .wu-name {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .wu-item.done .wu-name { text-decoration: line-through; color: var(--text-dim); }
+
+    .wu-prescription {
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      margin-top: 2px;
+    }
+
+    .wu-cue {
+      font-size: 11px;
+      color: var(--text-dim);
+      font-style: italic;
+      margin-top: 3px;
+      line-height: 1.3;
+    }
+
+    .wu-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .wu-timer-display {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .wu-item.done .wu-timer-display { color: var(--green); }
+
+    .wu-timer-btn {
+      background: var(--gold-dim);
+      border: 1px solid var(--gold);
+      border-radius: var(--radius);
+      color: var(--gold);
+      font-family: 'Barlow Condensed', system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .wu-timer-btn.running {
+      background: var(--red-dim);
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    .wu-reps-done {
+      background: var(--surface2);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      color: var(--text-dim);
+      font-family: 'Barlow Condensed', system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      cursor: pointer;
+    }
+
+    .wu-item.done .wu-reps-done {
+      background: var(--green-dim);
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    .wu-optional-tag {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--text-mute);
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+
+    .warmup-footer {
+      padding: 4px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .warmup-total-time {
+      font-size: 12px;
+      color: var(--text-dim);
+      text-align: center;
+      letter-spacing: 0.06em;
+      padding-bottom: 4px;
+    }
+
+    .warmup-skip-btn {
+      background: none;
+      border: none;
+      color: var(--text-mute);
+      font-family: 'Barlow Condensed', system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .warmup-complete-banner {
+      background: var(--green-dim);
+      border: 1px solid var(--green);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      margin: 0 16px 8px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.06em;
+      display: none;
+    }
+
+    .warmup-complete-banner.visible { display: block; }
+
     /* ── SCROLLBAR ── */
     ::-webkit-scrollbar { width: 0; }
   </style>
@@ -992,8 +1347,15 @@
     <div class="screen active" id="screen-today">
       <div class="screen-header">
         <div class="phase-tag" id="today-phase-tag">Phase 1 · Week 1 · Day A</div>
-        <div class="screen-title">TODAY</div>
-        <div class="screen-subtitle" id="today-goal">Build capacity · Stay pain-free</div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+          <div>
+            <div class="screen-title">TODAY</div>
+            <div class="screen-subtitle" id="today-goal">Build capacity · Stay pain-free</div>
+          </div>
+          <button class="warmup-today-btn" onclick="navigateToWarmup()">
+            <span>⏱</span> Warmup
+          </button>
+        </div>
       </div>
 
       <div class="suggestion-banner" id="suggestion-banner">
@@ -1141,10 +1503,43 @@
       </svg>
       Body
     </button>
+    <button class="nav-btn" onclick="navigate('warmup', this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+      </svg>
+      Warmup
+    </button>
   </nav>
 </div>
 
-<!-- FINISH MODAL -->
+    <!-- WARMUP -->
+    <div class="screen" id="screen-warmup">
+      <div class="screen-header">
+        <div class="phase-tag">Pre-Session · 6–10 min</div>
+        <div class="screen-title">WARMUP</div>
+        <div class="screen-subtitle" id="warmup-subtitle">Back-safe setup: ribs down, pelvis controlled.</div>
+      </div>
+
+      <div class="warmup-status-row" id="warmup-status-row">
+        <!-- adaptive tags shown here -->
+      </div>
+
+      <div class="warmup-skip-warning" id="warmup-skip-warning">
+        ⚠ Pain elevated — skipping warmup increases flare risk today.
+      </div>
+
+      <div class="warmup-list" id="warmup-list">
+        <!-- generated by JS -->
+      </div>
+
+      <div class="warmup-footer">
+        <div class="warmup-total-time" id="warmup-total-time"></div>
+        <button class="btn-primary" onclick="finishWarmup()">Start Workout →</button>
+        <button class="warmup-skip-btn" onclick="skipWarmup()" id="warmup-skip-btn">Skip Warmup</button>
+      </div>
+    </div>
+
+
 <div class="modal-overlay" id="finish-modal">
   <div class="modal">
     <div class="modal-title">Session Complete</div>
@@ -1181,41 +1576,41 @@
 // ─────────────────────────────────────────────
 
 const PUSH_LEVELS = [
-  'High Ring (Overhead)',
-  'Shoulder Height',
-  'Chest Height',
-  'Waist Height',
-  'Near Floor',
-  'Floor Level'
+  'Ring Pushup — Rings at Head Height (Easiest)',
+  'Ring Pushup — Rings at Shoulder Height',
+  'Ring Pushup — Rings at Chest Height',
+  'Ring Pushup — Rings at Waist Height',
+  'Ring Pushup — Rings Near Floor',
+  'Ring Pushup — Rings at Floor (Hardest)'
 ];
 
 const PULL_LEVELS = [
-  'Dead Hang Hold',
-  'Scapular Pulls',
-  'Negatives',
-  'Ring Rows',
-  'Assisted Pullups',
-  'Full Pullups'
+  'Dead Hang Hold — Hang Passively, Build Grip & Shoulder Tolerance',
+  'Scapular Pulls — Hang & Depress Shoulders, No Elbow Bend',
+  'Pullup Negatives — Jump to Top, Lower Yourself Slowly (5–8s)',
+  'Ring Rows — Body Angled Under Rings, Pull Chest to Rings',
+  'Band-Assisted Pullups — Foot in Band, Full Range of Motion',
+  'Full Pullups — Dead Hang to Chin Over Bar'
 ];
 
 const SQUAT_LEVELS = [
-  'Box Squat',
-  'Ring-Assisted Pistol',
-  'Uneven Squat',
-  'Partial Pistol',
-  'Full Pistol',
-  'Weighted Pistol'
+  'Box Squat — Two Legs, Sit Back onto Box, Full Depth',
+  'Ring-Assisted Pistol — Hold Rings for Balance, One Leg',
+  'Uneven Squat — One Foot Elevated on Ball or Plate',
+  'Partial Pistol — One Leg, Lower Halfway Only',
+  'Full Pistol Squat — One Leg, Hip Below Knee',
+  'Weighted Pistol Squat — Hold Plate or Kettlebell'
 ];
 
 const CORE_LEVELS = [
-  'Dead Bug',
-  'Hollow Hold (bent)',
-  'Hollow Hold (extend)',
-  'Tuck Hollow',
-  'L-Sit Tuck',
-  'Dragon Flag Neg',
-  'Dragon Flag',
-  'Full Hang L-Sit'
+  'Dead Bug — Lying, Lower Opposite Arm & Leg Slowly',
+  'Bent Hollow Hold — Knees Tucked, Low Back Pressed Flat',
+  'Extended Hollow Hold — Legs Straight, Arms Overhead',
+  'Tuck Hollow Rock — Rock Back & Forth in Tucked Position',
+  'L-Sit Tuck — On Rings or Parallettes, Knees to Chest',
+  'Dragon Flag Negative — Lower Body Slowly from Top, Bench',
+  'Dragon Flag — Full Body Lowering & Raising, Bench',
+  'Hanging L-Sit — Straight Legs Parallel to Floor, Dead Hang'
 ];
 
 const PHASE_DATA = [
@@ -1298,6 +1693,7 @@ function navigate(tab, btn) {
   if (tab === 'progress') renderProgress();
   if (tab === 'phases')   renderPhases();
   if (tab === 'body')     renderBody();
+  if (tab === 'warmup')   renderWarmup();
 }
 
 // ─────────────────────────────────────────────
@@ -1353,12 +1749,23 @@ function getMetricValue(criterionKey) {
 //  TODAY SCREEN
 // ─────────────────────────────────────────────
 
+const LEVEL_MAP = {
+  push:     { levels: PUSH_LEVELS,   key: 'push' },
+  pull:     { levels: PULL_LEVELS,   key: 'pull' },
+  squat:    { levels: SQUAT_LEVELS,  key: 'squat' },
+  core:     { levels: CORE_LEVELS,   key: 'core' },
+  shoulder: { levels: null,          key: null }
+};
+
 const WORKOUTS = [
   {
     id: 'push',
     label: 'PUSH',
-    getName: () => PUSH_LEVELS[state.exerciseLevels.push - 1],
-    getLevel: () => 'Level ' + state.exerciseLevels.push + ' · ' + PUSH_LEVELS[state.exerciseLevels.push - 1],
+    getName: () => PUSH_LEVELS[state.exerciseLevels.push - 1].split(' — ')[0],
+    getDesc: () => PUSH_LEVELS[state.exerciseLevels.push - 1].split(' — ')[1] || '',
+    getLevel: () => 'Level ' + state.exerciseLevels.push,
+    getCurrent: () => state.exerciseLevels.push,
+    getMax: () => PUSH_LEVELS.length,
     target: 'Target: 3 sets · Stop at 18–20 reps',
     sets: 3,
     type: 'reps'
@@ -1366,8 +1773,11 @@ const WORKOUTS = [
   {
     id: 'pull',
     label: 'PULL',
-    getName: () => PULL_LEVELS[state.exerciseLevels.pull - 1],
+    getName: () => PULL_LEVELS[state.exerciseLevels.pull - 1].split(' — ')[0],
+    getDesc: () => PULL_LEVELS[state.exerciseLevels.pull - 1].split(' — ')[1] || '',
     getLevel: () => 'Level ' + state.exerciseLevels.pull,
+    getCurrent: () => state.exerciseLevels.pull,
+    getMax: () => PULL_LEVELS.length,
     target: 'Target: 5 sets of 2–5 reps',
     sets: 5,
     type: 'reps'
@@ -1375,8 +1785,11 @@ const WORKOUTS = [
   {
     id: 'squat',
     label: 'SQUAT',
-    getName: () => SQUAT_LEVELS[state.exerciseLevels.squat - 1],
+    getName: () => SQUAT_LEVELS[state.exerciseLevels.squat - 1].split(' — ')[0],
+    getDesc: () => SQUAT_LEVELS[state.exerciseLevels.squat - 1].split(' — ')[1] || '',
     getLevel: () => 'Level ' + state.exerciseLevels.squat,
+    getCurrent: () => state.exerciseLevels.squat,
+    getMax: () => SQUAT_LEVELS.length,
     target: 'Target: 3 × 5–8 per leg',
     sets: 3,
     type: 'reps'
@@ -1384,8 +1797,11 @@ const WORKOUTS = [
   {
     id: 'core',
     label: 'CORE',
-    getName: () => CORE_LEVELS[state.exerciseLevels.core - 1],
+    getName: () => CORE_LEVELS[state.exerciseLevels.core - 1].split(' — ')[0],
+    getDesc: () => CORE_LEVELS[state.exerciseLevels.core - 1].split(' — ')[1] || '',
     getLevel: () => 'Level ' + state.exerciseLevels.core,
+    getCurrent: () => state.exerciseLevels.core,
+    getMax: () => CORE_LEVELS.length,
     target: 'Target: 3 × max hold (seconds)',
     sets: 3,
     type: 'time'
@@ -1394,7 +1810,10 @@ const WORKOUTS = [
     id: 'shoulder',
     label: 'SHOULDER',
     getName: () => 'Ring Support Hold',
+    getDesc: () => 'Arms Locked, Body Vertical, Rings Turned Out',
     getLevel: () => 'Stability work',
+    getCurrent: () => null,
+    getMax: () => null,
     target: 'Target: 3 × 20–45 seconds',
     sets: 3,
     type: 'time'
@@ -1417,11 +1836,28 @@ function renderToday() {
         <div class="card-label">${w.label}</div>
         <div>
           <div class="card-name">${w.getName()}</div>
+          <div class="card-desc">${w.getDesc()}</div>
           <div class="card-level">${w.getLevel()}</div>
         </div>
         <div class="card-chevron" id="chev-${w.id}">▼</div>
       </div>
       <div class="card-body" id="body-${w.id}">
+        ${w.getCurrent() !== null ? `
+        <div class="card-level-stepper">
+          <div class="cls-label">Change Level</div>
+          <div class="cls-controls">
+            <button class="cls-btn" onclick="changeLevel('${w.id}', -1, event)"
+              ${w.getCurrent() <= 1 ? 'disabled' : ''}>←</button>
+            <div class="cls-display">
+              <div class="cls-num">${w.getCurrent()} <span class="cls-of">/ ${w.getMax()}</span></div>
+              <div class="cls-name" id="cls-name-${w.id}">${w.getName()}</div>
+              <div class="cls-desc" id="cls-desc-${w.id}">${w.getDesc()}</div>
+            </div>
+            <button class="cls-btn" onclick="changeLevel('${w.id}', +1, event)"
+              ${w.getCurrent() >= w.getMax() ? 'disabled' : ''}>→</button>
+          </div>
+        </div>
+        ` : ''}
         <div class="target-line"><strong>${w.target}</strong></div>
         <div class="sets-grid">
           ${Array.from({length: w.sets}, (_, i) => `
@@ -1457,6 +1893,43 @@ function toggleCard(id) {
   const chev = document.getElementById('chev-' + id);
   const isOpen = body.classList.toggle('open');
   chev.classList.toggle('open', isOpen);
+}
+
+function changeLevel(id, delta, event) {
+  event.stopPropagation(); // prevent card toggle
+  const keyMap = { push: 'push', pull: 'pull', squat: 'squat', core: 'core' };
+  const key = keyMap[id];
+  if (!key) return;
+
+  const levelMap = { push: PUSH_LEVELS, pull: PULL_LEVELS, squat: SQUAT_LEVELS, core: CORE_LEVELS };
+  const levels = levelMap[id];
+  const current = state.exerciseLevels[key];
+  const newLevel = Math.max(1, Math.min(levels.length, current + delta));
+  if (newLevel === current) return;
+
+  state.exerciseLevels[key] = newLevel;
+  saveState();
+
+  // Update display in-place without full re-render
+  const w = WORKOUTS.find(w => w.id === id);
+  const nameEl = document.getElementById('cls-name-' + id);
+  const descEl = document.getElementById('cls-desc-' + id);
+  if (nameEl) nameEl.textContent = w.getName();
+  if (descEl) descEl.textContent = w.getDesc();
+
+  // Update the num display
+  const stepperEl = document.querySelector(`#body-${id} .cls-num`);
+  if (stepperEl) stepperEl.innerHTML = `${newLevel} <span class="cls-of">/ ${levels.length}</span>`;
+
+  // Update card header name too
+  document.querySelector(`#card-${id} .card-name`).textContent = w.getName();
+  document.querySelector(`#card-${id} .card-desc`).textContent = w.getDesc();
+  document.querySelector(`#card-${id} .card-level`).textContent = w.getLevel();
+
+  // Disable/enable buttons
+  const btns = document.querySelectorAll(`#body-${id} .cls-btn`);
+  btns[0].disabled = newLevel <= 1;
+  btns[1].disabled = newLevel >= levels.length;
 }
 
 function recordSet(exerciseId, setIdx, value) {
@@ -1829,6 +2302,330 @@ function saveBodyCheckin() {
   setTimeout(() => { btn.textContent = orig; btn.style.background = ''; }, 1500);
 
   renderBody();
+}
+
+// ─────────────────────────────────────────────
+//  WARMUP ENGINE
+// ─────────────────────────────────────────────
+
+const WARMUP_BASE = [
+  { id: 'breathing', name: '90/90 Breathing Reset', type: 'timer', duration: 60,
+    prescription: '5–6 slow breaths · ~60 sec',
+    cue: 'Exhale, ribs down, flatten low back. Hold 3–4 sec each breath.' },
+  { id: 'glute_bridge', name: 'Posterior Tilt Glute Bridge', type: 'reps', sets: 2, reps: 10,
+    prescription: '2 × 10 reps',
+    cue: 'Flatten low back first, tuck pelvis, lift with glutes. Lower slowly. No arching at top.' },
+  { id: 'dead_bug', name: 'Dead Bug', type: 'reps', sets: 2, reps: 8, perSide: true,
+    prescription: '2 × 8 per side',
+    cue: 'Low back stays pinned flat. If back lifts — shorten the range.' },
+  { id: 'ankle_wall', name: 'Knee-to-Wall Ankle Mobility', type: 'reps', sets: 2, reps: 10, perSide: true,
+    prescription: '2 × 10 per ankle',
+    cue: 'Heel stays down. Drive knee forward to wall. Move foot back as range improves.' },
+  { id: 'deep_squat', name: 'Supported Deep Squat Rock', type: 'timer', duration: 60,
+    prescription: '60 sec',
+    cue: 'Hold rings or rack. Heels down, chest tall, shift side to side. Low back neutral — not arched.' },
+  { id: 'hip_flexor', name: 'Half-Kneeling Hip Flexor Stretch', type: 'timer', duration: 30, perSide: true,
+    prescription: '30 sec per side',
+    cue: 'Posterior tilt first — tuck pelvis, then shift forward. Skipping tilt = stretching spine, not hip.' },
+  { id: 'hips_90_90', name: '90/90 Hip Rotations', type: 'timer', duration: 90,
+    prescription: '1–2 minutes',
+    cue: 'Stay tall. Rotate slowly side to side from the hips. Improves pistol control and knee tracking.' },
+  { id: 'hang', name: 'Hanging Decompression', type: 'timer', duration: 25, optional: true,
+    prescription: 'Optional · 20–30 sec',
+    cue: 'Dead hang from rings or bar. Light core engagement — do not arch.' }
+];
+
+// Active timer state
+let warmupTimers = {};       // { itemId: intervalId }
+let warmupTimeLeft = {};     // { itemId: secondsLeft }
+let warmupDone = new Set();  // completed item ids
+let activeWarmupRoutine = [];// final adapted routine
+
+function getTodayPain() {
+  const todayEntry = state.painHistory.find(p => p.date === today());
+  return {
+    shoulder: todayEntry ? (todayEntry.shoulder || 0) : 0,
+    back:     todayEntry ? (todayEntry.back || 0) : 0
+  };
+}
+
+function getTodayTightness() {
+  // Pull from bodyCheckin (in-memory from current session)
+  return {
+    ankles:   bodyCheckin.ankles   || false,
+    hips:     bodyCheckin.hips     || false,
+    thoracic: bodyCheckin.thoracic || false
+  };
+}
+
+function buildWarmupRoutine() {
+  // Deep-clone base
+  let routine = WARMUP_BASE.map(item => Object.assign({}, item));
+  const pain      = getTodayPain();
+  const tight     = getTodayTightness();
+  const tags      = [];
+  const addedIds  = new Set();
+  const removeIds = new Set();
+
+  // ── Rule A: Low Back ──
+  if (pain.back >= 4) {
+    tags.push({ label: 'Back Pain ' + pain.back + '/10', cls: 'warn' });
+    // Extra breathing set
+    routine.splice(1, 0, {
+      id: 'breathing_extra', name: '90/90 Breathing (Extra Set)', type: 'timer', duration: 60,
+      prescription: '+60 sec · pain modifier',
+      cue: 'Slow exhales. Flatten low back completely before moving on.',
+      added: true
+    });
+    addedIds.add('breathing_extra');
+    // Remove hanging decompression
+    removeIds.add('hang');
+    tags.push({ label: '+ Extra Breathing', cls: 'added' });
+    tags.push({ label: 'Hang Removed', cls: 'caution' });
+  } else if (pain.back >= 1) {
+    tags.push({ label: 'Back ' + pain.back + '/10', cls: 'caution' });
+  }
+
+  // ── Rule B: Shoulder ──
+  if (pain.shoulder >= 4) {
+    tags.push({ label: 'Shoulder ' + pain.shoulder + '/10', cls: 'warn' });
+    routine.push({
+      id: 'wall_slides', name: 'Scapular Wall Slides', type: 'reps', sets: 2, reps: 12,
+      prescription: '2 × 12 · shoulder modifier',
+      cue: 'Ribs down. Arms in W shape on wall, slide up to Y. Keep low back flat.',
+      added: true
+    });
+    addedIds.add('wall_slides');
+    removeIds.add('hang');
+    tags.push({ label: '+ Wall Slides', cls: 'added' });
+    tags.push({ label: '⚠ Elbows close on rings today', cls: 'caution' });
+  } else if (pain.shoulder >= 1) {
+    tags.push({ label: 'Shoulder ' + pain.shoulder + '/10', cls: 'caution' });
+  }
+
+  // ── Rule C: Ankles ──
+  if (tight.ankles) {
+    tags.push({ label: '+ Ankle Protocol', cls: 'added' });
+    routine = routine.map(item => {
+      if (item.id === 'ankle_wall') return Object.assign({}, item, { sets: 3, prescription: '3 × 10 per ankle (upgraded)', modified: true });
+      if (item.id === 'deep_squat') return Object.assign({}, item, { duration: 90, prescription: '90 sec (upgraded)', modified: true });
+      return item;
+    });
+    routine.push({
+      id: 'calf_iso', name: 'Calf Iso Stretch', type: 'timer', duration: 30, perSide: true,
+      prescription: '30 sec per side · ankle modifier',
+      cue: 'Heel firmly down, knee straight. Hold steady — feel the pull in the calf/achilles.',
+      added: true
+    });
+    addedIds.add('calf_iso');
+  }
+
+  // ── Rule D: Hips ──
+  if (tight.hips) {
+    tags.push({ label: '+ Hip Protocol', cls: 'added' });
+    routine = routine.map(item => {
+      if (item.id === 'glute_bridge') return Object.assign({}, item, { sets: 3, prescription: '3 × 10 reps (upgraded)', modified: true });
+      return item;
+    });
+  }
+
+  // ── Rule E: Thoracic ──
+  if (tight.thoracic) {
+    tags.push({ label: '+ Thoracic Protocol', cls: 'added' });
+    routine.push({
+      id: 'wall_slides_thor', name: 'Thoracic Wall Slides', type: 'reps', sets: 2, reps: 12,
+      prescription: '2 × 12 · thoracic modifier',
+      cue: 'Stand with back to wall. Arms in W, slide up to Y. Reach tall, ribs down.',
+      added: true
+    });
+    addedIds.add('wall_slides_thor');
+  }
+
+  // Remove flagged items
+  routine = routine.filter(item => !removeIds.has(item.id));
+
+  return { routine, tags };
+}
+
+function formatTime(sec) {
+  if (sec >= 60) {
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return s === 0 ? `${m}:00` : `${m}:${String(s).padStart(2,'0')}`;
+  }
+  return sec + 's';
+}
+
+function getTotalWarmupMinutes(routine) {
+  let total = 0;
+  routine.forEach(item => {
+    if (item.type === 'timer') {
+      total += (item.duration || 30) * (item.perSide ? 2 : 1);
+    } else {
+      // estimate ~20 sec per set
+      total += (item.sets || 2) * 20;
+    }
+  });
+  return Math.round(total / 60);
+}
+
+function renderWarmup() {
+  warmupTimers  = {};
+  warmupTimeLeft = {};
+  warmupDone    = new Set();
+
+  const { routine, tags } = buildWarmupRoutine();
+  activeWarmupRoutine = routine;
+
+  const pain = getTodayPain();
+
+  // Subtitle
+  const sub = document.getElementById('warmup-subtitle');
+  sub.textContent = pain.back >= 4 || pain.shoulder >= 4
+    ? 'Modified for today\'s pain. Take it slow.'
+    : 'Back-safe setup: ribs down, pelvis controlled.';
+
+  // Tags
+  const tagRow = document.getElementById('warmup-status-row');
+  if (tags.length) {
+    tagRow.innerHTML = tags.map(t => `<span class="warmup-tag ${t.cls}">${t.label}</span>`).join('');
+  } else {
+    tagRow.innerHTML = '<span class="warmup-tag info">All clear · Base routine</span>';
+  }
+
+  // Skip warning
+  const skipWarn = document.getElementById('warmup-skip-warning');
+  skipWarn.classList.toggle('visible', pain.back > 3 || pain.shoulder > 3);
+
+  // Total time
+  const mins = getTotalWarmupMinutes(routine);
+  document.getElementById('warmup-total-time').textContent = `Estimated time: ${mins}–${mins + 2} min`;
+
+  // Render items
+  const list = document.getElementById('warmup-list');
+  list.innerHTML = routine.map((item, idx) => {
+    const isTimer = item.type === 'timer';
+    const initTime = item.duration || 30;
+    warmupTimeLeft[item.id] = initTime;
+
+    const extraClass = item.added ? 'added-item' : item.modified ? 'modified-item' : '';
+
+    const rightHTML = isTimer
+      ? `<div class="wu-right">
+           <div class="wu-timer-display" id="timer-disp-${item.id}">${formatTime(initTime)}</div>
+           <button class="wu-timer-btn" id="timer-btn-${item.id}"
+             onclick="toggleTimer('${item.id}', ${initTime})">Start</button>
+         </div>`
+      : `<div class="wu-right">
+           <button class="wu-reps-done" onclick="markDone('${item.id}')">Done</button>
+         </div>`;
+
+    return `
+      <div class="wu-item ${extraClass}" id="wu-${item.id}">
+        <div class="wu-row">
+          <div class="wu-check" onclick="markDone('${item.id}')">✓</div>
+          <div class="wu-info">
+            <div class="wu-name">${item.name}</div>
+            <div class="wu-prescription">${item.prescription}${item.perSide ? ' · per side' : ''}</div>
+            <div class="wu-cue">"${item.cue}"</div>
+            ${item.optional ? '<div class="wu-optional-tag">Optional</div>' : ''}
+          </div>
+          ${rightHTML}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function toggleTimer(itemId, initSec) {
+  if (warmupTimers[itemId]) {
+    // Pause
+    clearInterval(warmupTimers[itemId]);
+    delete warmupTimers[itemId];
+    const btn = document.getElementById('timer-btn-' + itemId);
+    if (btn) { btn.textContent = 'Resume'; btn.classList.remove('running'); }
+  } else {
+    // Start / Resume
+    const btn = document.getElementById('timer-btn-' + itemId);
+    const disp = document.getElementById('timer-disp-' + itemId);
+    if (btn) { btn.textContent = 'Pause'; btn.classList.add('running'); }
+
+    // Mark as active
+    const el = document.getElementById('wu-' + itemId);
+    if (el) el.classList.add('active');
+
+    warmupTimers[itemId] = setInterval(() => {
+      warmupTimeLeft[itemId] = (warmupTimeLeft[itemId] || initSec) - 1;
+      const left = warmupTimeLeft[itemId];
+
+      if (disp) disp.textContent = formatTime(Math.max(0, left));
+
+      if (left <= 0) {
+        clearInterval(warmupTimers[itemId]);
+        delete warmupTimers[itemId];
+        markDone(itemId);
+      }
+    }, 1000);
+  }
+}
+
+function markDone(itemId) {
+  // Stop any running timer
+  if (warmupTimers[itemId]) {
+    clearInterval(warmupTimers[itemId]);
+    delete warmupTimers[itemId];
+  }
+
+  warmupDone.add(itemId);
+  const el = document.getElementById('wu-' + itemId);
+  if (el) {
+    el.classList.add('done');
+    el.classList.remove('active');
+  }
+
+  const btn = document.getElementById('timer-btn-' + itemId);
+  if (btn) { btn.textContent = '✓ Done'; btn.classList.remove('running'); }
+
+  // Check if all done
+  const allDone = activeWarmupRoutine.every(item => warmupDone.has(item.id));
+  if (allDone) {
+    // Show complete banner
+    let banner = document.getElementById('warmup-complete-banner');
+    if (!banner) {
+      banner = document.createElement('div');
+      banner.id = 'warmup-complete-banner';
+      banner.className = 'warmup-complete-banner';
+      banner.textContent = '✓ Warmup Complete — Ready to Train';
+      document.getElementById('warmup-list').after(banner);
+    }
+    banner.classList.add('visible');
+  }
+}
+
+function finishWarmup() {
+  // Log warmup completion
+  const todayEntry = state.painHistory.find(p => p.date === today());
+  if (todayEntry) todayEntry.warmupDone = true;
+  saveState();
+
+  // Navigate to Today
+  const todayBtn = document.querySelector('.nav-btn');
+  navigate('today', todayBtn);
+}
+
+function skipWarmup() {
+  const pain = getTodayPain();
+  if (pain.back > 3 || pain.shoulder > 3) {
+    const confirmed = confirm('Pain is elevated today. Skipping warmup increases flare risk. Are you sure?');
+    if (!confirmed) return;
+  }
+  const todayBtn = document.querySelector('.nav-btn');
+  navigate('today', todayBtn);
+}
+
+function navigateToWarmup() {
+  const warmupBtn = document.querySelectorAll('.nav-btn')[4];
+  navigate('warmup', warmupBtn);
 }
 
 // ─────────────────────────────────────────────
